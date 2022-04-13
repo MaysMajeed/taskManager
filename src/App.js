@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Tasky from "./components/DataSource";
+import AddTask from "./components/AddTask";
+import { FaPlus } from "react-icons/fa";
+import { useState } from "react";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
+  const newTaskHandler = () => {
+    setShowForm(!showForm);
+  };
+  const AddNewTask = ({ task }) => {
+    const NewTitle = task.taskTitle;
+    const NewDueDate = task.taskDueDate;
+    const NewDescription = task.taskDescription;
+
+    // const newTaskObject = {
+    //   id: Math.random() * 1000,
+    //   title: NewTitle,
+    //   taskDaueDate: NewDueDate,
+    //   description: NewDescription,
+    // };
+
+    // props.items.push({ newTaskObject });
+    console.log(NewTitle,NewDueDate,NewDescription);
+  };
+  const deletHandler = () => {
+    console.log("Item deleted!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="big--title">
+        MY TASKS <FaPlus className="icon--plus" onClick={newTaskHandler} />
+      </h1>
+      {showForm && <AddTask onAdd={AddNewTask} />}
+
+      <Tasky onDelete={deletHandler} />
     </div>
   );
 }

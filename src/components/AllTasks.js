@@ -1,5 +1,5 @@
 import Task from "./Task";
-function AllTasks(props) {
+function AllTasks(props, onDelete) {
   return (
     <div>
       {props.items.map((t) => (
@@ -7,7 +7,7 @@ function AllTasks(props) {
           key={t.id}
           title={t.title + " #" + t.id}
           description={t.description}
-          onDelete={t.onDelete}
+          onDelete={onDelete}
         />
       ))}
     </div>

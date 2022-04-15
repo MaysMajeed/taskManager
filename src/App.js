@@ -9,20 +9,16 @@ function App() {
   const newTaskHandler = () => {
     setShowForm(!showForm);
   };
-  const AddNewTask = ({ task }) => {
-    const NewTitle = task.taskTitle;
-    const NewDueDate = task.taskDueDate;
-    const NewDescription = task.taskDescription;
+  const AddNewTask = (task, props) => {
+    const newTaskObject = {
+      id: Math.floor(Math.random() * 10000),
+      title: task.taskTitle,
+      taskDaueDate: task.taskDueDate,
+      description: task.taskDescription,
+    };
 
-    // const newTaskObject = {
-    //   id: Math.random() * 1000,
-    //   title: NewTitle,
-    //   taskDaueDate: NewDueDate,
-    //   description: NewDescription,
-    // };
-
-    // props.items.push({ newTaskObject });
-    console.log(NewTitle,NewDueDate,NewDescription);
+    console.log(newTaskObject);
+    //props.items.push({ newTaskObject });
   };
   const deletHandler = () => {
     console.log("Item deleted!");

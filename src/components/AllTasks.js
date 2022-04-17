@@ -1,13 +1,18 @@
+import { useState } from "react";
 import Task from "./Task";
-function AllTasks(props, onDelete) {
+function AllTasks({ items }) {
+  let [itemList, setItemList] = useState(items);
+  const handleDelete = (itemId) => {
+    setItemList(itemList.filter((x) => x.id !== itemId));
+  };
   return (
     <div>
-      {props.items.map((t) => (
+      {itemList.map((t) => (
         <Task
           key={t.id}
           title={t.title + " #" + t.id}
           description={t.description}
-          onDelete={onDelete}
+          onDelete={() => handleDelete(t.id)}
         />
       ))}
     </div>

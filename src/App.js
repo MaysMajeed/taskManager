@@ -20,10 +20,6 @@ function App() {
     console.log(newTaskObject);
     //props.items.push({ newTaskObject });
   };
-  const deletHandler = () => {
-    console.log("Item deleted!");
-  };
-
   return (
     <div>
       <h1 className="big--title">
@@ -31,7 +27,7 @@ function App() {
       </h1>
       {showForm && <AddTask onAdd={AddNewTask} />}
 
-      <Tasky onDelete={deletHandler} />
+      <Tasky/>
     </div>
   );
 }

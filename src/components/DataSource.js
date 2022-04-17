@@ -37,10 +37,10 @@ const Tasks = [
   },
 ];
 
-function Tasky(onDelete) {
+function Tasky() {
   return (
     <div>
-      <AllTasks items={Tasks} onDelete={onDelete} />
+      <AllTasks items={Tasks} />
     </div>
   );
 }
